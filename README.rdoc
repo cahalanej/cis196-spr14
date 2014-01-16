@@ -1,28 +1,10 @@
-== README
+== Heroku
+http://cis196-spr14.herokuapp.com/
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+== 1/15/2014
+	1. Setup Ruby, Rails, Git and Heroku
+	2. Updated Gemfile to run SQLite3 locally and postgreSQL on Heroku
+	3 Created a home page by generating a home controller with an index method and view
+				rails generate controller home index
+	and updating the config/routes.rb to include 
+				root 'home#index' 
