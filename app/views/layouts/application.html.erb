@@ -8,7 +8,30 @@
 </head>
 <body>
 
-<%= yield %>
+
+	<div class="navbar">
+		<ul class="nav">
+			<li id="top-logo"><a class="nav-link" href="https://www.linkedin.com/">LinkedIn.com</a></li>
+			<div id="right-links">
+			<li><a class="nav-link" href="http://www.linkedin.com/static?key=what_is_linkedin&trk=hb_what">What is LinkedIn?</a></li>
+			<li><a class="nav-link" href="https://www.linkedin.com/reg/join?trk=hb_join">Join Today</a></li>
+			<li><a class="nav-link" href="https://www.linkedin.com/uas/login?goback=&trk=hb_signin">Sign In</a></li>
+		</div>
+		</ul>
+	</div>
+
+	<%= yield %>
+
+	<div class="footer">
+		<ul id="nav-footer">
+			<li id="foot-logo"><span>LinkedIn Corporation</span><em>© 2014</em></li>
+			<li><a class="foot-link" href="http://www.linkedin.com/legal/user-agreement?trk=hb_ft_userag">User Agreement</a></li>
+			<li><a class="foot-link" href="http://www.linkedin.com/legal/privacy-policy?trk=hb_ft_priv">Privacy Policy</a></li>
+			<li><a class="foot-link" href="https://help.linkedin.com/app/answers/detail/a_id/34593/loc/na/trk/uas-consumer-login-internal/">Community Guidelines</a></li>
+			<li><a class="foot-link" href="http://www.linkedin.com/legal/cookie-policy?trk=hb_ft_cookie">Cookie Policy</a></li>
+			<li id="last" ><a class="foot-link" href="http://www.linkedin.com/legal/copyright-policy?trk=hb_ft_copy">Copyright Policy</a></li>
+		</ul>
+	</div>
 
 </body>
 </html>
