@@ -21,9 +21,19 @@ body{
 	font-size: 13px;
 }
 
+
+.content{
+	position: relative;
+	width: 974px;
+	margin-left: auto;
+	margin-right: auto;
+	padding: 10px;
+	z-index:1;
+}
 //NAVBAR
 .nav{	
-	position: fixed;
+	position: relative;
+	top:0;
 	width: 100%;
 	background-image: -webkit-linear-gradient(top, #696969, #3f3f3f);
 	height: 42px;
@@ -40,18 +50,6 @@ ul{
 	display: inline;
 }
 
-#top-logo a{
-	background-image: url('https://static.licdn.com/scds/common/u/images/logos/linkedin/logo_linkedin_flat_white_93x21.png');
-	background-repeat: no-repeat;
-	color: transparent; //sets font color to transparent to show image but hide text
-	margin-top: 10px;
-	margin-left: 2%;
-}
-
-#right-links{
-	float: right;
-	margin-right: 2%;
-}
 .nav-link{
 	padding: 10px;
 	padding-top: 13px;
@@ -62,35 +60,38 @@ ul{
 }
 
 
-
-//FOOTER
-
-.footer{
-	width: 100%;
-	position: relative;
-	bottom:0;
-	padding: 10px;
-	border-top: 1px solid #ccc;
-}
-.footer li{
-	display: inline;
-	border-right: 1px solid #ccc;
-	padding: 0px 8px;
+.dropdown ul{
+   display: none; 
+   width: 10em; /* Width to help Opera out */
+   
 }
 
-.footer a{
+.dropdown:hover ul {
+	position:absolute;
+	display: block;
+	top:42px;
+	margin: 0;
+	padding: 0;
+	z-index: 5;
+}
+.dropdown li {
+	display: block;
+	float: none; 
+	list-style-type: none;
+	background-color:#3f3f3f;
+	padding: 5px;
+}
+.dropdown li a {
+	text-align: left;
 	text-decoration: none;
-	color: #069;
 }
 
-#foot-logo span{
-	width: 62px;
-	float: left;
-	background-image: url('https://static.licdn.com/scds/common/u/images/logos/logo_linkedin_med_grey_trans_64x16_v1.png');
-	background-repeat: no-repeat;
-	color: transparent;	
+.dropdown li a {
+	float: none;
+	padding: 10px 15px 10px;
+	color: #c5c5c5;
+	text-decoration: none;
+	text-shadow: 0 1px 0 #282828;
 }
 
-#last{
-	border-right: none;
-}
+

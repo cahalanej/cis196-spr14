@@ -1,0 +1,16 @@
+<table>
+	<tr>
+		<td>title</td>
+		<td>body</td>
+		<td>category</td>
+		<td>user</td>
+	</tr>
+	<% @posts.each do |post| %>
+	<tr>
+		<td><%= post.title %></td>
+		<td><%= post.body %></td>
+		<td><%= post.category %></td>
+		<td><%= post.user.name %></td>
+	</tr>
+	<%end%>
+</table>
