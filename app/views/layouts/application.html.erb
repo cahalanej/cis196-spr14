@@ -17,8 +17,18 @@
 					<li><%= link_to "all users", users_path %></li>
 				</ul>
 			</li>
-			<li class=''><a class="nav-link" href="#">Posts</a></li>
-			<li class=''><a class="nav-link" href="#">Comments</a></li>
+			<li class='dropdown'><a class="nav-link" href="#">Posts</a>
+				<ul>
+					<li><%= link_to "new post", new_post_path %></li>
+					<li><%= link_to "all posts", posts_path %></li>
+				</ul>
+			</li>
+			<li class='dropdown'><a class="nav-link" href="#">Comments</a>
+				<ul>
+					<li><%= link_to "new comment", new_comment_path %></li>
+					<li><%= link_to "all comments", comments_path %></li>
+				</ul>
+			</li>
 		</ul>
 	</div>
 

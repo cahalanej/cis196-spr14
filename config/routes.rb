@@ -1,6 +1,8 @@
 Cis196Spr14::Application.routes.draw do
 
 
+  resources :comments
+  get "home/index"
   resources :users
   resources :posts
   # The priority is based upon order of creation: first created -> highest priority.

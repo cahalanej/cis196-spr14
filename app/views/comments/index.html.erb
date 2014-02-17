@@ -1,0 +1,14 @@
+<table>
+	<tr>
+		<td>comment body</td>
+		<td>user</td>
+		<td>post</td>
+	</tr>
+	<% @comments.each do |comment| %>
+	<tr>
+		<td><%= comment.body %></td>
+		<td><%= comment.user.name %></td>
+		<td><%= comment.post.title %></td>
+	</tr>
+	<%end%>
+</table>

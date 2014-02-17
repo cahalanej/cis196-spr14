@@ -1,0 +1,17 @@
+<%= form_for(@comment) do |f| %>
+	<div class="field">
+		<p>Comment Body</p>
+		<%= f.text_area :body%>
+	</div>
+	<div class="field">
+		<p>user</p>
+		<%= f.collection_select :user_id, User.all, :id, :name%>
+	</div>
+	<div class="field">
+		<p>post</p>
+		<%= f.collection_select :post_id, Post.all, :id, :title%>
+	</div>
+	<div class="actions">
+		<%= f.submit%>
+	</div>
+<% end %> 

@@ -2,13 +2,14 @@
 	<tr>
 		<td>name</td>
 		<td>email</td>
-		<td>passwords</td>
+		<td>password</td>
 	</tr>
 	<% @users.each do |user| %>
 	<tr>
-		<td><%= user.name %></td>
+		<td><%=user.name%></td>
 		<td><%= user.email %></td>
 		<td><%=  %></td>
+
 	</tr>
 	<%end%>
 </table>
