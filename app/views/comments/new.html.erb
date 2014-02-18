@@ -1,4 +1,4 @@
-<%= form_for(@comment) do |f| %>
+<%= form_for(Comment.new) do |f| %>
 	<div class="field">
 		<p>Comment Body</p>
 		<%= f.text_area :body%>
