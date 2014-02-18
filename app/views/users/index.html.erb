@@ -6,9 +6,10 @@
 	</tr>
 	<% @users.each do |user| %>
 	<tr>
-		<td><%=user.name%></td>
+		<td><%= link_to user.name, user_path(user.id)%></td>
 		<td><%= user.email %></td>
 		<td><%=  %></td>
+		<td><%= button_to "destroy user", user, confirm: "you sure you want to do that man?", method: :delete %></td>
 
 	</tr>
 	<%end%>
