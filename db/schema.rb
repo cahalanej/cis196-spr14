@@ -11,18 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140217030059) do
+ActiveRecord::Schema.define(version: 20140217030060) do
 
   create_table "comments", force: true do |t|
     t.text     "body"
-    t.integer  "User_id"
-    t.integer  "Post_id"
+    t.integer  "user_id"
+    t.integer  "post_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "comments", ["Post_id"], name: "index_comments_on_Post_id"
-  add_index "comments", ["User_id"], name: "index_comments_on_User_id"
+  add_index "comments", ["post_id"], name: "index_comments_on_post_id"
+  add_index "comments", ["user_id"], name: "index_comments_on_user_id"
 
   create_table "posts", force: true do |t|
     t.string   "title"

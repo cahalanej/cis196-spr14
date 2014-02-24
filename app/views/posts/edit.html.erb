@@ -1,2 +1,21 @@
-<h1>Posts#edit</h1>
-<p>Find me in app/views/posts/edit.html.erb</p>
+<%= form_for(@post) do |f| %>
+	<div class="field">
+		<p>title</p>
+		<%= f.text_field :title%>
+	</div>
+	<div class="field">
+		<p>body</p>
+		<%= f.text_area :body%>
+	</div>
+	<div class="field">
+		<p>category</p>
+		<%= f.text_field :category%>
+	</div>
+	<div class="field">
+		<p>user</p>
+		<%= f.collection_select :user_id, User.all, :id, :name%>
+	</div>
+	<div class="actions">
+		<%= f.submit%>
+	</div>
+<% end %> 
