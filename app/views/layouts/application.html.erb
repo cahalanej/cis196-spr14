@@ -12,10 +12,7 @@
 	<div class="navbar">
 		<ul class="nav">
 			<li class='dropdown'><a class="nav-link" href="#">Users</a>
-				<ul>
-					<li><%= link_to "new user", new_user_path %></li>
-					<li><%= link_to "all users", users_path %></li>
-				</ul>
+				
 			</li>
 			<li class='dropdown'><a class="nav-link" href="#">Posts</a>
 				<ul>
@@ -29,8 +26,20 @@
 					<li><%= link_to "all comments", comments_path %></li>
 				</ul>
 			</li>
+			<% if !user_signed_in? %>
+			<li> 
+				<%=link_to "Login", new_user_session_path, :class => "nav-link" %>
+			</li>
+			<%else%>
+			<li>
+				<%=link_to "Logout", destroy_user_session_path, :method => :delete, :class => "nav-link" %>
+			</li>
+			<%end%>
 		</ul>
 	</div>
+
+<p class="notice"><%= notice %></p>
+<p class="alerts"><%= alert %></p>
 
 <div class="content">
 	<%= yield %>

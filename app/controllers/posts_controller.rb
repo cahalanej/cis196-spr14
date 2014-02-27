@@ -1,15 +1,23 @@
 class PostsController < ApplicationController
   def new
-  	@post = Post.new
+    if user_signed_in?
+  	 @post = Post.new
+    else
+      redirect_to new_user_session_path
+    end
   end
 
   def create
   	@post = Post.new(post_params)
-  	if @post.save
-  		redirect_to posts_path
-  	else
-  		render 'new'
-  	end
+    if @post.user_id != current_user.id
+  	 render 'new'
+    else
+      if @post.save
+  		  redirect_to posts_path
+  	 else
+  	 	 render 'new'
+  	 end
+    end
   end
 
   def post_params
