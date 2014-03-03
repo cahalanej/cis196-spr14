@@ -6,4 +6,12 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 	has_many :posts, :dependent => :destroy
 	has_many :comments, :dependent => :destroy
+
+	phoneFormatValidation = /\(\d{3}\) \d{3}-\d{4}/
+
+	#validations
+	validates :phone, format: {with: phoneFormatValidation}
+
+
 end
+
