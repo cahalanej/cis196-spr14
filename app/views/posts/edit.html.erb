@@ -1,7 +1,7 @@
 <div class="error-msg">
 	<% if @post.errors.any? %>
 	<ul>
-		<%@post.errors.full_messages.each.do |msg| %>
+		<%@post.errors.full_messages.each do |msg| %>
 		<li><%= msg %></li>
 		<% end %>
 	</ul>
