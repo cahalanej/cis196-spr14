@@ -6,6 +6,7 @@ gem 'rails', '4.0.2'
 # Use sqlite3 as the database for Active Record
 group :development do
 	gem 'sqlite3'
+	gem 'letter_opener', github: 'ryanb/letter_opener'
 end
 
 group :production do
