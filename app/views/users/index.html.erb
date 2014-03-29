@@ -8,10 +8,23 @@
 	<tr>
 		<td><%= link_to user.name, user_path(user.id)%></td>
 		<td><%= user.email %></td>
-		<td><%=  %></td>
-		<td><%= link_to "edit", edit_user_path(user.id) %></td>
-		<td><%= button_to "destroy user", user, confirm: "you sure you want to do that man?", method: :delete %></td>
 
+		<% if Follower.where("follower_id = ? AND followee_id = ?", current_user.id, user.id).empty? %>
+			<td><%=form_for (Follower.new) do |f| %>
+				<div class="field">
+					<%= f.hidden_field :follower_id, :value => current_user.id%>
+				</div>
+				<div class="field">
+					<%= f.hidden_field :followee_id, :value => user.id%>
+				</div>
+				<div class="actions">
+					<%= f.submit "follow" %>
+				</div>
+			<%end %> </td>
+		<%else%>
+			<td><%= button_to "unfollow", Follower.where("follower_id = ? AND followee_id = ?", current_user.id, user.id).take!, method: :delete %></td>
+		<%end%>
 	</tr>
 	<%end%>
+
 </table>

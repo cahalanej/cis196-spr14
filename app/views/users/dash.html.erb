@@ -1,0 +1,8 @@
+<h2><%= current_user.name%> </h2>
+
+<div>
+	<h3> following </h3>
+	<% Follower.where(follower_id: current_user.id).each do |follow| %>
+		<p><%= follow.followee.name %></p>
+	<%end%>
+</div>

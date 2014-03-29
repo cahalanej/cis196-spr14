@@ -6,6 +6,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 	has_many :posts, :dependent => :destroy
 	has_many :comments, :dependent => :destroy
+	has_many :followers, :dependent => :destroy
 
 	phoneFormatValidation = /\(\d{3}\) \d{3}-\d{4}/
 
