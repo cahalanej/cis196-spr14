@@ -2,3 +2,11 @@
 	<h2><%= @user.name %></h2>
 	<p><%= @user.email %></p>
 </div>
+
+<% @posts.each do |post| %>
+	<div class="dash-review">
+		<h2><%= link_to post.title, post_path(post.id)%></h2>
+		<p><%= post.user.name%></p>
+		<p><%= post.body%></p>
+	</div>
+<%end%>

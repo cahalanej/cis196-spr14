@@ -5,3 +5,31 @@
 	<p><%= @post.body %></p>
 	<p><%= @post.category %></p>
 </div>
+
+
+<%= form_for(@comment) do |f| %>
+	<div class="field">
+		<p>Comment Body</p>
+		<%= f.text_area :body%>
+	</div>
+	<div class="field">
+		<%= f.hidden_field :user_id, :value => current_user.id%>
+	</div>
+	<div class="field">
+		<%= f.hidden_field :post_id, :value => @post.id%>
+	</div>
+	<div class="actions">
+		<%= f.submit%>
+	</div>
+<% end %> 
+
+<% @comments.each do |comment| %>
+	<tr>
+		<td><%= comment.body%></td>
+		<td><%= comment.user.name %></td>
+		<% if comment.user_id == current_user.id || @post.user_id == current_user.id %>
+			<td><%= button_to "edit", edit_comment_path(comment.id), method: :get %></td>
+			<td><%= button_to "destroy comment", comment, confirm: "you sure you want to do that man?", method: :delete %></td>
+		<%end %>
+	</tr>
+	<%end%>

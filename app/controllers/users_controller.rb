@@ -22,6 +22,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @posts = Post.where(user_id: @user.id)
   end
 
   def edit
@@ -47,6 +48,11 @@ class UsersController < ApplicationController
     if user_signed_in?
       @user = current_user
       @followers = Follower.where(follower_id: current_user.id)
+      @follower_id = []
+      @followers.each do |follow|
+        @follower_id.push(follow.followee_id)
+      end
+      @posts = Post.where(user_id: @follower_id).order(created_at: :desc).limit(5)
     else 
       redirect_to users_path
     end
