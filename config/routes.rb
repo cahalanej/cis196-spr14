@@ -9,6 +9,10 @@ Cis196Spr14::Application.routes.draw do
   resources :posts
 
   get "dashboard", to: "users#dash"
+
+  post "search", to: "application#search"
+
+  get "posts/category/:cat", to: "posts#cat_index", as: "cat_posts"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

@@ -19,7 +19,7 @@
 	</div>
 	<div class="field">
 		<p>category</p>
-		<%= f.text_field :category%>
+		<%= f.select :category, options_for_select([["art","art"], ["music", "music"], ["travel", "travel"], ["misc", "misc"]])%>
 	</div>
 	<div class="field">
 		<%= f.hidden_field :user_id, :value => current_user.id%>

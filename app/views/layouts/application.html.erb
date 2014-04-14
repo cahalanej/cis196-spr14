@@ -11,6 +11,9 @@
 
 	<div class="navbar">
 		<ul class="nav">
+			<li>
+				<%=link_to "Home", root_path, :class => "nav-link" %>
+			</li>
 			<li class='dropdown'><a class="nav-link" href="#">Users</a>
 				<ul>
 					<li><%= link_to "all users", users_path %></li>
@@ -19,31 +22,41 @@
 			</li>
 			<li class='dropdown'><a class="nav-link" href="#">Posts</a>
 				<ul>
-					<li><%= link_to "new post", new_post_path %></li>
-					<li><%= link_to "all posts", posts_path %></li>
+					<li><%= link_to "art", cat_posts_path("art") %></li>
+					<li><%= link_to "music", cat_posts_path("music") %></li>
+					<li><%= link_to "travel", cat_posts_path("travel") %></li>
+					<li><%= link_to "misc", cat_posts_path("misc") %></li>
+						<li><%= link_to "new post", new_post_path %></li>
 				</ul>
 			</li>
-			<li class='dropdown'><a class="nav-link" href="#">Comments</a>
-				<ul>
-					<li><%= link_to "new comment", new_comment_path %></li>
-					<li><%= link_to "all comments", comments_path %></li>
-				</ul>
+			<li>
+				<%= form_tag search_path, method: :post do %>
+					<%= text_field_tag :search %>
+					<%= select_tag(:type, options_for_select([["title","title"], ["category", "category"], ["name", "name"], ["email", "email"]])) %>
+					<%= submit_tag "Search" %>
+				<%end%>
 			</li>
-			<% if !user_signed_in? %>
+			<div class="right">
+				<% if !user_signed_in? %>
 			<li> 
 				<%=link_to "Login", new_user_session_path, :class => "nav-link" %>
 			</li>
 			<%else%>
-			<li>
-				<%=link_to "Dashboard", dashboard_path, :class => "nav-link" %>
-			</li>
-			<li>
-				<%=link_to "Edit Profile", edit_user_registration_path, :class => "nav-link" %>
-			</li>
-			<li>
-				<%=link_to "Logout", destroy_user_session_path, :method => :delete, :class => "nav-link" %>
-			</li>
-			
+				<li class='dropdown'><a class="nav-link" href="#">Profile</a>
+					<ul>
+						<li>
+							<%=link_to "Dashboard", dashboard_path, :class => "nav-link" %>
+						</li>
+						<li>
+							<%=link_to "Edit Profile", edit_user_registration_path, :class => "nav-link" %>
+						</li>
+						<li>
+							<%=link_to "Logout", destroy_user_session_path, :method => :delete, :class => "nav-link" %>
+						</li>
+					</ul>
+				</li>
+			</div>
+			</div>
 			<%end%>
 		</ul>
 	</div>

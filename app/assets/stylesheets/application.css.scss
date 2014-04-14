@@ -12,6 +12,16 @@
  *= require_tree .
  */
 
+.left{
+	float: left;
+}
+
+.right{
+	float: right;
+	margin-right: 70px;
+}
+
+
 body{
 	background-image: url('background.png');
 	margin: 0;

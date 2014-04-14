@@ -24,6 +24,11 @@ class PostsController < ApplicationController
   	params.require(:post).permit(:title, :body, :category, :user_id)
   end
 
+  def cat_index
+    @posts = Post.where(category: params[:cat])
+    render 'posts/index'
+  end
+
   def index
   	@posts = Post.all
   end

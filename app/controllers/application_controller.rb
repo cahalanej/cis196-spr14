@@ -4,6 +4,19 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_filter :configure_permitted_parameters, if: :devise_controller?
 
+  def search
+  	case params[:type]
+  		when "title", "category"
+  			@posts = Post.where(params[:type] + " LIKE ?", "%" + params[:search]+"%")
+  			render 'posts/index'
+  		when "name", "email"
+  			@users = User.where(params[:type] + " LIKE ?", "%" + params[:search]+"%")
+  			render 'users/index'
+  		else
+  			render 'none'
+  		end
+	end
+
   protected
 
   def configure_permitted_parameters
