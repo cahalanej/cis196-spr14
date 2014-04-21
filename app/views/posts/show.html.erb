@@ -23,6 +23,14 @@
 	</div>
 <% end %> 
 
+</br>
+
+<button class="hide-btn">Hide Comments</button>
+
+</br>
+</br>
+
+<div class= "comments">
 <% @comments.each do |comment| %>
 	<tr>
 		<td><%= comment.body%></td>
@@ -33,3 +41,4 @@
 		<%end %>
 	</tr>
 	<%end%>
+</div>
